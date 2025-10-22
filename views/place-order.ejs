@@ -1,0 +1,31 @@
+<%- include('./partials/header') %>
+<% if(error.length>0) { %>
+    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%= error %>
+        </span>
+    </div>
+<% } %>
+<div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Place Your Order</h2>
+    <form action="/placeholder" method="POST">
+        <div class="mb-4">
+            <label for="address" class="block text-sm font-medium text-gray-700">Address:</label>
+            <input type="text" id="address" name="address" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus: outline-none focus: ring focus:focus-ring-blue-500" placeholder="Enter your address">
+        </div>
+        <div class="mb-4">
+            <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus: ring focus-ring-blue-500" placeholder="Enter your mobile number">
+        </div>
+        <div class="mb-4">
+            <label for="payment" class="block text-sm font-medium text-gray-700">Payment Method:</label>
+            <select name="payment" id="payment" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus: outline-none focus-ring-blue-500">
+                <option value="esewa">ESewa</option>
+                <option value="Cash On Delivery">Cash on Delivery</option>
+            </select>
+        </div>
+        <input type="hidden" name="total" value="<%= total %>">
+        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover: bg-blue-700 transition duration-200">Place Order</button>
+    </form>
+</div>
+    <%-include('./partials/footer') %>
